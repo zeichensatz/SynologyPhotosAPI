@@ -156,7 +156,7 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | SYNO.FotoTeam.Thumbnail | | 
 | SYNO.FotoTeam.Upload.Item | | 
 
-In the directories [API/SYNO.Foto/](API/SYNO.Foto/) and [API/SYNO.FotoTeam/](API/SYNO.FotoTeam/) the descriptions for the APIs will be listed for every method. The files name pattern is `<name of API>.<name of method>.md`, i.e. `SYNO.Foto.Album.list.md`.
+In the directories [API/SYNO.Foto/](API/SYNO.Foto/) and [API/SYNO.FotoTeam/](API/SYNO.FotoTeam/) the descriptions for the APIs will be listed for every method. The files name pattern is `<name of API>.<name of method>.md`, i.e. `SYNO.Foto.Browse.Album.list.md` (API: SYNO.Foto.Browse.Album, method: list).
 
 I only checked a few APIs, which I want to use for my application and I didn't check any available parameter for request and response.
 
