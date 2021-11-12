@@ -1,5 +1,6 @@
 # SynologyPhotosAPI
-Exploring the Synology Photos API
+I started to explore the Synology Photos API for my own project. This project is about integration of images from Synology Photos into my website directly by using API calls.
+The informations here are by far not complete. It's just a start.
 
 ## Searching the Synology Photos app directories
 There are some files in the directory `/volume1/@appstore/SynologyPhotos/usr/webapi`, which are an entry point to the Synology Photos API.
