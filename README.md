@@ -78,10 +78,20 @@ About authenticaton also see [DSM Login Web API Guide](https://global.download.s
 #### Structure
 
 ##### Difference between SYNO.Foto.* and SYNO.FotoTeam.*
-SYNO.Foto.* offers access to all folders in the `Personal Space` in the `Photos` tab and to all `Albums` in the `Albums` tab.<br/>
-SYNO.FotoTeam.* offers access to all folders in the `Shared Space`.
+`SYNO.Foto.*` offers access to all folders in the `Personal Space` in the `Photos` tab and to all `Albums` in the `Albums` tab.<br/>
+`SYNO.FotoTeam.*` offers access to all folders in the `Shared Space`.
 
 There are less APIs in SYNO.FotoTeam available. The APIs with similar names should be quite the same refering to their methods and responses.
+
+##### Level of authentication for APIs
+There are three levels of authentication for the APIs, see the `authLevel` in the files [SYNO.Foto.lib](API/SYNO.Foto.lib) and [SYNO.Fototeam.lib](API/SYNO.FotoTeam.lib).
+`authLevel` can get the values 0, 1, 2.
+
+| Value | Description |
+| --- | --- | 
+| 0 | No authentication needed. For display of general informations. | 
+| 1 | Authentication needed | 
+| 2 | No authentication needed. If authenticated accessible area might be different. | 
 
 ##### List of SYNO.Foto.* APIs
 
@@ -146,7 +156,7 @@ There are less APIs in SYNO.FotoTeam available. The APIs with similar names shou
 | SYNO.FotoTeam.Thumbnail | | 
 | SYNO.FotoTeam.Upload.Item | | 
 
-In the directories [API/SYNO.Foto/](API/SYNO.Foto/) and [API/SYNO.FotoTeam/](API/SYNO.FotoTeam/) the descriptions for the APIs will be listed for every method. The files name pattern is `<name of API>.<name of method>.md`, i.e. `SYNO.FOTO.Album.list.md`.
+In the directories [API/SYNO.Foto/](API/SYNO.Foto/) and [API/SYNO.FotoTeam/](API/SYNO.FotoTeam/) the descriptions for the APIs will be listed for every method. The files name pattern is `<name of API>.<name of method>.md`, i.e. `SYNO.Foto.Album.list.md`.
 
 I only checked a few APIs, which I want to use for my application and I didn't check any available parameter for request and response.
 
@@ -230,7 +240,7 @@ Now you can list all items in this folder as following:
 ```
 https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Item&version=1&method=list&offset=0&limit=100&folder_id=608&additional=["thumbnail"]
 ```
-Der Parameter `additional=["thumbnail"]` wird angehängt, damit für jedes Item `cache_key` ausgegeben wird, das für den Abruf des einzelnen Bildes benötigt wird.
+Parameter `additional=["thumbnail"]` is added to get the value `cache_key` for every item. `cache_key` is needed for getting a specific item later.
 
 Response:
 ```
@@ -291,7 +301,7 @@ https://<IP_ADDRESS>/photo/mo/sharing/webapi/entry.cgi?api=SYNO.FotoTeam.Thumbna
 ```
 
 ## Access to Shared Albums
-To access shared albums was a problem, I was quite struggling with.
+To access shared albums was a problem, I'm quite struggling with.
 I want to access the thumbnails of photos in a shared album for loading them into my own web application.
 
 ```
@@ -420,7 +430,7 @@ The response might look as follows:
 }
 ```
 ### Get thumbnail for each item
-Now I can get the thumbnail of each image:
+Now you can get the thumbnail of each image:
 ```
 curl -k -b cookie 'https://<IP_ADDRESS>/photo/mo/sharing/webapi/entry.cgi?id=25752&cache_key="25752_1633653385"&type="unit"&size="sm"&passphrase="EkPUCJLDI"&api="SYNO.Foto.Thumbnail"&method="get"&version=1&_sharing_id="EkPUCJLDI"'
 ```
@@ -431,7 +441,7 @@ The parameter `passphrase="EkPUCJLDI"` is not needed.
 Getting a thumbnail this way with curl on the html server for the website doesn't help. The thumbnail can't be used as a reference to the image in html because the cookie we get on the webserver with curl limits it's use to the server and not to the browser of someone calling the website.
 Therefore another solution has to be found.
 
-#### Javascript-Lösung?
+#### Javascript solution?
 Login as a guest user (only for this kind of calls).
 ```
 let synosid = '';
@@ -487,10 +497,10 @@ The thumbnails are calculated on the lower value of both sides for every size. T
 | m | 320 |
 | xl | 1280 |
 
-I didn't check yet, what will happen, if the original size is smaller than a thumbnail minimum size. Most probably the thumbnail will not be generated in this case.
+I didn't systematically check yet, what will happen, if the original size is smaller than a thumbnail minimum size. Most probably the thumbnail will not be generated in this case.
 
 So size calculation can be done as following:
-* get srcHeight and srcWidth from original file
+* get srcHeight (from additional.resolution.height) and srcWidth (from additional.resolution.width) of original file
 * if srcHeight > scrWidth then 
   * xSM/xM/xXL = 240/320/1280
   * srcWidth DIV srcHeight * 240/320/1280 = ySM/yM/yXL
