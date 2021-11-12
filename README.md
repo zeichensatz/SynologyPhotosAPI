@@ -106,21 +106,21 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | SYNO.Foto.Browse.Folder | Browse only folders in the `Personal Space`. | 
 | SYNO.Foto.Browse.GeneralTag | | 
 | SYNO.Foto.Browse.Geocoding | | 
-| SYNO.Foto.Browse.Item | Browse items in folders in `Personal Space`. | 
+| SYNO.Foto.Browse.Item | Browse/list items in folders in `Personal Space`. | 
 | SYNO.Foto.Browse.NormalAlbum | Browse only normal albums. | 
 | SYNO.Foto.Browse.Person | | 
 | SYNO.Foto.Browse.RecentlyAdded | | 
 | SYNO.Foto.Browse.Timeline | | 
 | SYNO.Foto.Browse.Unit | | 
-| SYNO.Foto.Download | | 
+| SYNO.Foto.Download | Retrieve/download the original file. | 
 | SYNO.Foto.Favorite | | 
 | SYNO.Foto.Index | | 
 | SYNO.Foto.Migration | | 
 | SYNO.Foto.PublicSharing | Get all text strings for user interface (UI). | 
-| SYNO.Foto.Search.Filter | | 
-| SYNO.Foto.Search.Search | | 
+| SYNO.Foto.Search.Filter | List all available search filters. | 
+| SYNO.Foto.Search.Search | Search album and items. | 
 | SYNO.Foto.Setting.Admin | | 
-| SYNO.Foto.Setting.Guest | | 
+| SYNO.Foto.Setting.Guest | Get settings for guests. | 
 | SYNO.Foto.Setting.MobileCompatibility | | 
 | SYNO.Foto.Setting.TeamSpace | | 
 | SYNO.Foto.Setting.User | | 
@@ -128,7 +128,7 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | SYNO.Foto.Sharing.Misc | | 
 | SYNO.Foto.Sharing.Passphrase | | 
 | SYNO.Foto.Streaming | | 
-| SYNO.Foto.Thumbnail | | 
+| SYNO.Foto.Thumbnail | Get thumbnail(s). | 
 | SYNO.Foto.Upload.Item | | 
 | SYNO.Foto.UserInfo | | 
 
@@ -141,19 +141,19 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | SYNO.FotoTeam.Browse.Folder | Browse only folders in the `Personal Space`. | 
 | SYNO.FotoTeam.Browse.GeneralTag | | 
 | SYNO.FotoTeam.Browse.Geocoding | | 
-| SYNO.FotoTeam.Browse.Item | List all items in all folders in `Personal Space`. | 
+| SYNO.FotoTeam.Browse.Item | Browse/list items in folders in the `Personal Space`. | 
 | SYNO.FotoTeam.Browse.Person | | 
 | SYNO.FotoTeam.Browse.RecentlyAdded | | 
 | SYNO.FotoTeam.Browse.Timeline | | 
 | SYNO.FotoTeam.Browse.Unit | | 
-| SYNO.FotoTeam.Download | | 
+| SYNO.FotoTeam.Download | Retrieve/download the original file | 
 | SYNO.FotoTeam.Favorite | | 
 | SYNO.FotoTeam.Index | | 
-| SYNO.FotoTeam.Search.Filter | | 
-| SYNO.FotoTeam.Search.Search | | 
+| SYNO.FotoTeam.Search.Filter | List all available search filters. | 
+| SYNO.FotoTeam.Search.Search | Search album and items. | 
 | SYNO.FotoTeam.Sharing.Passphrase | | 
 | SYNO.FotoTeam.Streaming | | 
-| SYNO.FotoTeam.Thumbnail | | 
+| SYNO.FotoTeam.Thumbnail | Get thumbnail(s). | 
 | SYNO.FotoTeam.Upload.Item | | 
 
 In the directories [API/SYNO.Foto/](API/SYNO.Foto/) and [API/SYNO.FotoTeam/](API/SYNO.FotoTeam/) the descriptions for the APIs will be listed for every method. The files name pattern is `<name of API>.<name of method>.md`, i.e. `SYNO.Foto.Browse.Album.list.md` (API: SYNO.Foto.Browse.Album, method: list).
