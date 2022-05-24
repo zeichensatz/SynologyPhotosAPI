@@ -33,7 +33,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&vers
 | sort_direction |   | Values can be default, desc, asc. |
 
 ### Example:
-```
+```json
 {
    "data":{
       "list":[
