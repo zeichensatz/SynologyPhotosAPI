@@ -22,7 +22,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Search.Search&method=c
 | --- | --- | --- |
 | count | Integer | Number of files |
 
-```
+```json
 {
    "data":{
       "count":36
