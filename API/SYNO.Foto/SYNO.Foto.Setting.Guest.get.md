@@ -23,7 +23,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Setting.Guest&version=
 | --- | --- | --- |
 
 ### Example:
-```
+```json
 {
    "data":{
       "alias":"photo",
