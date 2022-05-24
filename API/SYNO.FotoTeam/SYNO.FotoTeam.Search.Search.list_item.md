@@ -32,7 +32,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Search.Search&meth
 | time | Linux timestamp in second | Timestamp of file creation |
 | type | String | Type of data<br/><b>photo:</b> Photo<br/><b>video:</b> Video<br/><b>live:</b> iPhone live photos |
 
-```
+```json
 {
    "data":{
       "list":[
