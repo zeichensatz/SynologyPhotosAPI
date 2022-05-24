@@ -56,7 +56,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Browse.Item&version=1&
 | person | Returns person object(s) | Information about tagged person(s). | 
 
 ### Example:
-```
+```json
 {
    "data":{
       "list":[

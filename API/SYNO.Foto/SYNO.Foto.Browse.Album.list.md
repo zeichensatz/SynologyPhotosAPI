@@ -48,7 +48,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Browse.Album&version=1
 | user_id | Integer |   |
 
 ### Example:
-```
+```json
 {
    "data":{
       "list":[
