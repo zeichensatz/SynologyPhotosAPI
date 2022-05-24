@@ -48,7 +48,7 @@ Using the POST method with curl would work like follows:
 curl -X POST --data 'api=SYNO.API.Auth&version=3&method=login&account=<USER>&passwd=<PASSWORD>' https://<IP_ADDRESS>/photo/webapi/auth.cgi
 ```
 You will get the following response:
-```
+```json
 {
    "data":{
       "did":"3ezTHmf9ekMNjM-nF8J3qI5VzsMXlJBjRcNHotIwzKTc3ju2YGB7y9IIvOPxHTSuvvZmVOxM7u7f57w7ndtmog",
@@ -67,7 +67,7 @@ With curl:
 curl 'http://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=logout'
 ```
 Response should be:
-```
+```json
 {
    "success":true
 }
@@ -171,7 +171,7 @@ The following call gets all folders in the directory `/volume1/photo` from the D
 https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&version=1&method=list_parents
 ```
 Response might look like following:
-```
+```json
 {
    "data":{
       "list":[
@@ -206,7 +206,7 @@ To get a list of subfolders from a specific folder you have to use the method `l
 https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&version=1&method=list&offset=0&limit=100&id=153
 ```
 Response:
-```
+```json
 {
    "data":{
       "list":[
@@ -244,7 +244,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Item&versio
 Parameter `additional=["thumbnail"]` is added to get the value `cache_key` for every item. `cache_key` is needed for getting a specific item later.
 
 Response:
-```
+```json
 {
    "data":{
       "list":[
@@ -338,7 +338,7 @@ curl -H "cookie: sharing_sid=Kr5KTYIJn11M0c-h0UN3366oIaE5l-BX" -H "x-syno-sharin
 ```
 
 The response might look as follows:
-```
+```json
 {
    "data":{
       "list":[
@@ -444,7 +444,7 @@ Therefore another solution has to be found.
 
 #### Javascript solution?
 Login as a guest user (only for this kind of calls).
-```
+```javascript
 let synosid = '';
 fetch("https://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=login&account=gast&passwd=guest")
 	.then(response => response.json())
