@@ -67,7 +67,7 @@ With curl:
 curl 'http://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=logout'
 ```
 Response should be:
-```
+```json
 {
    "success":true
 }
@@ -444,7 +444,7 @@ Therefore another solution has to be found.
 
 #### Javascript solution?
 Login as a guest user (only for this kind of calls).
-```
+```javascript
 let synosid = '';
 fetch("https://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=login&account=gast&passwd=guest")
 	.then(response => response.json())
