@@ -23,7 +23,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Search.Filter&method=l
 | see example | | |
 
 ### Example:
-```
+```json
 {
    "data":{
       "aperture":[
