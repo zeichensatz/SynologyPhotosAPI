@@ -100,15 +100,15 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | --- | --- | 
 | SYNO.Foto.BackgroundTask.File | | 
 | SYNO.Foto.BackgroundTask.Info | | 
-| SYNO.Foto.Browse.Album | Browse albums. Normal and condition(al) albums are listed. | 
+| SYNO.Foto.Browse.Album | Handle albums. Normal and condition(al) albums are listed. | 
 | SYNO.Foto.Browse.Category | | 
-| SYNO.Foto.Browse.ConditionAlbum | Browse only condition(al) albums. | 
+| SYNO.Foto.Browse.ConditionAlbum | Handle only condition(al) albums. | 
 | SYNO.Foto.Browse.Diff | | 
-| SYNO.Foto.Browse.Folder | Browse only folders in the `Personal Space`. | 
+| SYNO.Foto.Browse.Folder | Handle only folders in the `Personal Space`. | 
 | SYNO.Foto.Browse.GeneralTag | | 
 | SYNO.Foto.Browse.Geocoding | | 
-| SYNO.Foto.Browse.Item | Browse/list items in folders in `Personal Space`. | 
-| SYNO.Foto.Browse.NormalAlbum | Browse only normal albums. | 
+| SYNO.Foto.Browse.Item | Handle an item in the `Personal Space`. Example methods include `add_tag`, `copy`, `delete`, `get`, `get_exif`, `get_tag`, `list`, `move`, `rename`, `set` | 
+| SYNO.Foto.Browse.NormalAlbum | Handle only normal albums. | 
 | SYNO.Foto.Browse.Person | | 
 | SYNO.Foto.Browse.RecentlyAdded | | 
 | SYNO.Foto.Browse.Timeline | | 
@@ -139,10 +139,10 @@ There are three levels of authentication for the APIs, see the `authLevel` in th
 | --- | --- | 
 | SYNO.FotoTeam.BackgroundTask.File | | 
 | SYNO.FotoTeam.Browse.Diff | | 
-| SYNO.FotoTeam.Browse.Folder | Browse only folders in the `Personal Space`. | 
+| SYNO.FotoTeam.Browse.Folder | Handle only folders in the `Shared Space`. | 
 | SYNO.FotoTeam.Browse.GeneralTag | | 
 | SYNO.FotoTeam.Browse.Geocoding | | 
-| SYNO.FotoTeam.Browse.Item | Browse/list items in folders in the `Personal Space`. | 
+| SYNO.FotoTeam.Browse.Item | Handle an item in the `Shared Space`. Example methods include `add_tag`, `copy`, `delete`, `get`, `get_exif`, `get_tag`, `list`, `move`, `rename`, `set` | 
 | SYNO.FotoTeam.Browse.Person | | 
 | SYNO.FotoTeam.Browse.RecentlyAdded | | 
 | SYNO.FotoTeam.Browse.Timeline | | 
