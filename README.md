@@ -442,18 +442,69 @@ The parameter `passphrase="EkPUCJLDI"` is not needed.
 Getting a thumbnail this way with curl on the html server for the website doesn't help. The thumbnail can't be used as a reference to the image in html because the cookie we get on the webserver with curl limits it's use to the server and not to the browser of someone calling the website.
 Therefore another solution has to be found.
 
-#### Javascript solution?
-Login as a guest user (only for this kind of calls).
+#### Javascript Solution
+
+When fetching photo data from the  API, each photo object includes an `additional` object which contains a `thumbnail` object. This `thumbnail` object includes a `cache_key` field. The `cache_key` is a unique identifier for the photo's thumbnail image.
+
+When generating a URL to access the thumbnail image, you can include the `cache_key` as a parameter along with the `sid` in the URL. This allows you to bypass the session-based restrictions that would normally prevent the thumbnail image from being accessed outside of the original session in which it was requested.
+
+Here's an example of how to fetch photo data and generate a thumbnail URL:
+
 ```javascript
-let synosid = '';
-fetch("https://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=login&account=gast&passwd=guest")
-	.then(response => response.json())
-	.then(response => {
-		//console.log(response.data.sid); // response is the API response ...
-		synosid = response.data.sid; // sid is the value of data.sid in the response, needed as verification "&_sid=..." for getting thumbnails
-      document.getElementById("test").innerHTML = '<img src="https://<IP_ADDRESS>/photo/mo/sharing/webapi/entry.cgi?id=25752&cache_key=%2225752_1633653385%22&type=%22unit%22&size=%22sm%22&passphrase=%22EkPUCJLDI%22&api=%22SYNO.Foto.Thumbnail%22&method=%22get%22&version=1&_sid=' + synosid + '" />';
-	});
+async function fetchPhotos(sid) {
+  const photosResponse = await fetch(
+    `https://${ip}/photo/webapi/entry.cgi?api=SYNO.Foto.Browse.Item&version=1&method=list&type=photo&offset=0&limit=5000&_sid=${sid}&additional=["thumbnail"]`
+  )
+  const photosData = await photosResponse.json()
+  return photosData.data.list[0] //just return the first photo as an example
+}
 ```
+That will return an object that looks like this:
+
+```JSON
+{
+  id: 7713,
+  filename: 'IMG_20230625_095440.jpg',
+  filesize: 7231588,
+  time: 1687686880,
+  indexed_time: 1687683302513,
+  owner_user_id: 1,
+  folder_id: 242,
+  type: 'photo',
+  additional: {
+    thumbnail: {
+      m: 'ready',
+      xl: 'ready',
+      preview: 'broken',
+      sm: 'ready',
+      cache_key: '7713_1687701308',
+      unit_id: 7713
+    }
+  }
+}
+```
+
+The `cache_key` can then used as a parameter to access the web url of the photo
+
+
+```javascript
+function getThumbnailUrl(ip, sid, photo) {
+  const {
+    id,
+    additional: {
+      thumbnail: { cache_key }
+    }
+  } = photo
+  return `https://${ip}/webapi/entry.cgi?api=SYNO.Foto.Thumbnail&version=1&method=get&mode=download&id=${id}&type=unit&size=xl&cache_key=${cache_key}&_sid=${sid}`
+}
+```
+
+Note that the `cache_key` is specific to each photo and its corresponding thumbnail image. It cannot be used to access other photos or their thumbnails.
+
+
+It seems that this approach allows you to circumvent the issue of needing a cookie by using the `cache_key` and `sid` for authentication. By including them as params, you're able to access the thumbnails directly, even in a new, cookie-less session/incognito window. 
+
+---
 
 ### How to get size (height/width) of photos and thumbnails
 With help of the Synology Photos API one can only get informations about the size of the original photo, not about the size of the thumbnails. You can only get general information about the thumbnails: availability and a general size. Sizes can have the values `sm`, `m` and `xl`.
