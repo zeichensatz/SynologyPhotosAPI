@@ -8,9 +8,13 @@ List items for a keyword.
 
 | Parameter | Description | Value | Default Value |
 | --- | --- | --- | --- |
-| offset | Required. Specify how many shared folders are skipped before beginning to return listed shared folders. | Integer | 0 |
-| limit | Required. Number of shared folders requested. 0 lists all shared folders. | Integer | 0 |
-| keyword | Keyword for search | String | |
+| offset | Required. Specify how many items are skipped before beginning to return | Integer | 0 |
+| limit | Required. Number of items requested. 0 lists all items. | Integer | 0 |
+| keyword | Keyword to search for | String | |
+| timeline_group_unit | Parameter to group results, one of "day", ... ??? | String | day |
+| additional | ??? | List of String | ["thumbnail","resolution","orientation","video_convert","video_meta","address"] |
+| start_time | start timestamp to limit results | Integer |  |
+| end_time | end timestamp to limit results | Integer |  |
 
 ### Example:
 ```
