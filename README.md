@@ -313,11 +313,10 @@ This displays a shared album without having to be logged in (as long there's not
 These are the steps, how to get access on each file in a shared album:
 
 ### Getting a sharing_id
-The only way to get a valid cookie I know at the moment, is by using curl to call the link for the shared album. `-c cookie` stores the cookie data into the file `cookie`.
+We need to obtain a `sharing_sid` cookie value for subsequent requests. `-c cookie` stores the cookie data into the file `cookie`.
 ```
-curl -c cookie https://<IP_ADDRESS>/photo/mo/sharing/EkPUCJLDI
+curl -c cookie https://<IP_ADDRESS>/photo/webapi/entry.cgi -d 'api=SYNO.Core.Sharing.Login&method=login&version=1&sharing_id=EkPUCJLDI
 ```
-There should be another way via the AUTH.API.
 
 ### List items in a shared album
 Now we can list the items of this album with the following curl command:
