@@ -23,7 +23,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.PublicSharing&version=
 | --- | --- | --- |
 
 ### Example:
-```json
+```YAML
 "SYNO_Kailash_Strings="{
    "*photo*":{
       "about":"",
