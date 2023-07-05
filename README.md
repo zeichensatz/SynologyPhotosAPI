@@ -206,7 +206,7 @@ To get a list of subfolders from a specific folder you have to use the method `l
 https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&version=1&method=list&offset=0&limit=100&id=153
 ```
 Response:
-```json
+```YAML
 {
    "data":{
       "list":[
@@ -220,7 +220,7 @@ Response:
             "sort_by":"default",
             "sort_direction":"default"
          },
-...
+# ...
          {
             "id":776,
             "name":"/Mongolia/20170805",
@@ -244,7 +244,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Item&versio
 Parameter `additional=["thumbnail"]` is added to get the value `cache_key` for every item. `cache_key` is needed for getting a specific item later.
 
 Response:
-```json
+```YAML
 {
    "data":{
       "list":[
@@ -268,7 +268,7 @@ Response:
             "time":1501448021,
             "type":"photo"
          },
-...
+# ...
          {
             "additional":{
                "thumbnail":{
@@ -460,7 +460,7 @@ async function fetchPhotos(sid) {
 ```
 That will return an object that looks like this:
 
-```JSON
+```YAML
 {
   id: 7713,
   filename: 'IMG_20230625_095440.jpg',
