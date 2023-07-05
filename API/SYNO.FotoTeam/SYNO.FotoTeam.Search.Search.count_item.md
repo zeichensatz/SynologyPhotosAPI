@@ -22,7 +22,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Search.Search&meth
 | --- | --- | --- |
 | count | Integer | Number of files |
 
-```json
+```YAML
 {
    "data":{
       "count":1789
