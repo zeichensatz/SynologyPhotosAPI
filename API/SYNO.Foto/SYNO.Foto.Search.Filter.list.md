@@ -23,7 +23,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Search.Filter&method=l
 | see example | | |
 
 ### Example:
-```json
+```YAML
 {
    "data":{
       "aperture":[
@@ -210,7 +210,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Search.Filter&method=l
             "start_time":1630454400,
             "year":2021
          },
-...
+#...
          {
             "end_time":1617235199,
             "month":3,
