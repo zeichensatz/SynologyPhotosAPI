@@ -33,7 +33,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&vers
 | sort_direction |   | Values can be default, desc, asc. |
 
 ### Example:
-```json
+```YAML
 {
    "data":{
       "list":[
@@ -47,7 +47,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&vers
             "sort_by":"filename",
             "sort_direction":"desc"
          },
-...
+#...
          {
             "id":1395,
             "name":"/WoK_19990000_Fotos",
@@ -58,7 +58,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&vers
             "sort_by":"default",
             "sort_direction":"default"
          },
-...
+#...
       ]
    },
    "success":true
