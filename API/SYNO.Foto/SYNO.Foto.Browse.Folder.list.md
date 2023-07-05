@@ -34,7 +34,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Browse.Folder&version=
 | sort_direction |   |   |
 
 ### Example:
-```json
+```YAML
 {
    "data":{
       "list":[
