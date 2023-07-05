@@ -36,7 +36,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.Foto.Search.Search&method=l
 | time | Linux timestamp in second | Timestamp of file creation |
 | type | String | Type of data<br/><b>photo:</b> Photo<br/><b>video:</b> Video<br/><b>live:</b> iPhone live photos |
 
-```json
+```YAML
 {
    "data":{
       "list":[
