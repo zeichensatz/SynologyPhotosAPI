@@ -14,7 +14,7 @@ List all items in `Shared Space`, filterd by parameters like start, end date or 
 | sort_direction | Optional. Specify to sort ascending or to sort descending. <br/>Options include: <br/><b>asc:</b> sort ascending. <br/><b>desc:</b> sort descending. | asc or desc | asc |
 |version | Required. Version 1 seems to be sufficient | Integer |
 | additional | additional information which will be delivered by the api. <br/> ["thumbnail"]: Every Item will get the proper thumbnail link in Response | String
-| time | Filter by Start and Enddate <br/> [{"start_time":1112360182,"end_time":1131803782}] | String | All items 
+| time | Filter by Start and Enddate <br/> [{"start_time":1112360182,"end_time":1131803782}]<br>start_time and end_time is formatted as unix timestamp | String | All items 
 
 
 ### Example:
