@@ -40,7 +40,7 @@ From the response you can see, that the part about the Synology Photos API lists
 ### Authentication
 #### Login:
 For many API calls you need to be authenticated first. You can achieve this by the SYNO.API.Auth as follows. Instead of `auth.cgi` you may also use `entry.cgi` or `query.cgi`. All three options did work for me.<br/>
-Just replace `<IP_ADDRESS>`, `<USER>` and `<PASSWORD>` with your data:
+Just replace `<IP_ADDRESS>`, `<USER>` and `<PASSWORD>` with your data (please be aware that `<USER>` and `<PASSWORD>` with special characters may have to be URL encoded!):
 
 ```
 https://<IP_ADDRESS>/photo/webapi/auth.cgi?api=SYNO.API.Auth&version=3&method=login&account=<USER>&passwd=<PASSWORD>
