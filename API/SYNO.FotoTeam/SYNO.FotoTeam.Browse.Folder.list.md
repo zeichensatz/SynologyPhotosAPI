@@ -30,6 +30,7 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.FotoTeam.Browse.Folder&vers
 | parent | Integer | ID of parent directory |
 | passphrase | String | Passphrase |
 | shared | Boolean |   |
+| sort_by |   | Values can be default, filename, ???? |
 | sort_direction |   | Values can be default, desc, asc. |
 
 ### Example:
