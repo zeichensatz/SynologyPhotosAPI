@@ -13,7 +13,7 @@ The [Synology File Station API Guide](https://global.download.synology.com/downl
 Note: For exploring the Synology Photos API you should have installed this package of course. Otherwise the API will not be listed.
 
 ### Which APIs are available on your Synology?
-You may either use the administration port `5001` or the path `/photo` to retrieve information about all available APIs. Just replace `<IP_ADDRESS>` with your Synology's address:
+You may either use the administration port `5001` (for HTTPS, use port `5000` for HTTP) or the path `/photo` (which has to be set as alias for Synology Photos in Control Panel -> Login Portal -> Applications) to retrieve information about all available APIs. Just replace `<IP_ADDRESS>` with your Synology's address:
 
 ```
 https://<IP_ADDRESS>:5001/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=all
@@ -23,6 +23,8 @@ https://<IP_ADDRESS>/photo/webapi/entry.cgi?api=SYNO.API.Info&version=1&method=q
 ```
 
 `entry.cgi` and `query.cgi` can be used synonymously. Both will get the same result.
+
+Note: In the examples below I will only use `/photo` assuming you have set the alias for Synology Photos. Replace `/photo` with your alias or with the ports `5000` or `5001`.
 
 From the response you can see, that the part about the Synology Photos API lists the same APIs as we can find in the above mentioned files [SYNO.Foto.lib](API/SYNO.Foto.lib) and [SYNO.Fototeam.lib](API/SYNO.FotoTeam.lib):
 
@@ -37,7 +39,7 @@ From the response you can see, that the part about the Synology Photos API lists
 
 ### Authentication
 #### Login:
-For many API calls you need to be authenticated first. You can achieve this by the SYNO.API.Auth as follows.<br/>
+For many API calls you need to be authenticated first. You can achieve this by the SYNO.API.Auth as follows. Instead of `auth.cgi` you may also use `entry.cgi` or `query.cgi`. All three options did work for me.<br/>
 Just replace `<IP_ADDRESS>`, `<USER>` and `<PASSWORD>` with your data:
 
 ```
@@ -315,7 +317,7 @@ These are the steps, how to get access on each file in a shared album:
 ### Getting a sharing_id
 We need to obtain a `sharing_sid` cookie value for subsequent requests. `-c cookie` stores the cookie data into the file `cookie`.
 ```
-curl -c cookie https://<IP_ADDRESS>/photo/webapi/entry.cgi -d 'api=SYNO.Core.Sharing.Login&method=login&version=1&sharing_id=EkPUCJLDI
+curl -c cookie https://<IP_ADDRESS>/photo/webapi/entry.cgi -d 'api=SYNO.Core.Sharing.Login&method=login&version=1&sharing_id=EkPUCJLDI'
 ```
 
 ### List items in a shared album
